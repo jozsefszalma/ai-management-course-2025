@@ -140,7 +140,7 @@ The below are my cleaned up 'course notes' on the topics we covered.
 
 #### 1) Core limitations to articulate clearly
 
-- **Autoregressive generation**: same compute expended for each token generated, every additional token is another chance to diverge (longer outputs increase error probability).
+- **Autoregressive generation**: same compute spent for each token generated, every additional token is another chance to diverge (longer outputs increase error probability).
 - **Context window constraints**: you trade off missing crucial context vs higher cost and performance degradation when stuffing too much in.
 - **Interpretability**: most production deployments are effectively "black box" with partial observability.
 
@@ -208,7 +208,7 @@ The below are my cleaned up 'course notes' on the topics we covered.
 #### Sampling:
 
 - Higher temperature/top-k → more creative but higher risk of errors.
-- No guaranteed repeatability, even with temperature 0 and greedy decoding (selecting the highest probability token) due to provider routing, model updates, or other numerical differences (e.g., rounding errors).
+- No guaranteed repeatability, even with temperature 0 and greedy decoding (selecting the highest probability token) due to provider routing, model updates, or other numerical differences (e.g. rounding errors).
 - MoE architectures can add additional nondeterminism depending on implementation.
 
 #### Training & hallucinations (practical framing)
@@ -308,17 +308,17 @@ Threats, risks, and mitigations:
 
 | Risk / Threat | Mitigation |
 |---|---|
-| Shadow AI | Provide officially supported tools |
-| Data residency & sovereignty | Select providers with EU residency and GDPR compliance |
+| Shadow AI | Provide standardized, governed, officially supported tools for your organization |
+| Non-compliance with data residency & sovereignty regulations | Address needs from the beginning (e.g. select providers with EU residency and GDPR compliance) |
 | Model deprecation / retirements | End-to-end lifecycle management (you WILL need developers involved after deployment) |
-| Open-source vs open-weight | Assume you **do not** have access to the training data or training code; unknown biases and possibility of model poisoning should factor into the security decisions |
-| Supply chain attacks (Python libs, pickle files) | Use trusted libraries; mandate **safetensors** instead of relying on PyTorch defaults |
+| Open-source vs open-weight confusion | Remember that you **do not** have access to the training data or training code; unknown biases and possibility of model poisoning should factor into the security design decisions |
+| Supply chain attacks (e.g. Python libs, pickle files) | Monitor your dependencies, use as reliable libraries and repositories as possible; mandate **safetensors** instead of relying on PyTorch defaults |
 | Licensing issues | MIT and Apache are generally fine, however (!) some open weight models use modified MIT / Apache license with e.g., revenue limits. Otherwise require review |
-| Prompt injections (data → "executable instructions" parallels) | Input validation is problematic; first ask: do you really need external/untrusted input in the context |
+| Prompt injections (data → "executable instructions" parallels) | Input and output validation is challenging; first ask: do you really need external/untrusted input in the context. Use at least basic hygiene to sanitize inputs and validate outputs (e.g. Amazon Bedrock Guardrails, Azure AI Content Safety)  |
 | Jailbreaks | Defense-in-depth; treat model output as untrusted |
 | Data exfiltration / PII leakage | minimize and anonymize PII, constrain tools, add approvals, log everything, and assume exfil is possible |
 | Tool abuse | Least privilege; strict user-like scopes; treat agents as untrusted users |
-| Design anti-patterns (no access controls, no least privilege, open attack vectors + sensitive data access, exposed MCP) | Zero trust (plus proper access controls and least-privileged scopes) |
+| Design anti-patterns (no access controls, no least privilege, open attack vectors + sensitive data access, exposed MCP) | Education, security awareness; Standardized, governed deployment pipelines; Enforcement of zero trust principles for deployment (plus proper access controls and least-privileged scopes); Security testing |
 | Bias (training data skews: Reddit/4chan/academia, etc.) | Evals, evals, and more evals (and accept residual risk) |
 | Reputation risks | Challenge the need for customer-facing chatbots; avoid if not necessary |
 | Emerging threats (AI whistleblowers, data poisoning and sleeper agents) | Zero trust; least privilege; treat agents like employees you have no recourse to |
@@ -369,12 +369,12 @@ Scenario: a no-code/low-code AI agent triages a Gmail inbox.
 #### 4) Audit / code review questions
 
 - Does the agent really need unrestricted search access?
-  - Anything the agent can read becomes a prompt-injection vector.
+  - Anything the agent can read becomes both a potential prompt-injection attack vector as well as a data exfiltration target.
 - Could sensitive data enter the context window or tool-access scope and be exfiltrated?
 - Does the agent really need PII at all?
 - Does the agent only access the current user's data, or can it select users by itself?
 - Can the agent communicate externally?
-  - If yes: allowlist domains/endpoints only.
+  - If yes: are domains/endpoints restricted/allow-listed?
 - Which tool actions require explicit confirmation?
   - Especially send/share/export/delete.
 - Do we keep immutable, reviewable audit logs of tool calls and data access?
@@ -721,7 +721,7 @@ I intentionally did **not** go deep on:
 
 - **PII (Personally Identifiable Information)**: Information that can identify a person directly or indirectly. In AI systems: prompts, logs, retrieved docs, and outputs can all contain PII.
 
-- **Prompt injection**: When untrusted text (email, web page, document, ticket) contains instructions that manipulate the model/agent into unwanted behavior. Especially dangerous when tool use is enabled.
+- **Prompt injection**: When user prompts (email, web page, document, ticket, even non-human-visible/readable inputs) alter the model/agent behavior our output resulting in unintended behaviors, such as causing them to violate guidelines, generate harmful content, enable unauthorized access, or influence critical decisions. Especially dangerous when tool use is enabled.
 
 - **RAG (Retrieval-Augmented Generation)**: A pattern where the system retrieves relevant documents/snippets and injects them into the prompt so the model can answer grounded in provided context.
 
@@ -738,6 +738,6 @@ I intentionally did **not** go deep on:
 - **Tool calling / Function calling**: A capability where the model outputs a structured request to call an external tool/API (search, DB query, ticket creation), enabling workflows beyond text generation.
 
 - **Zero trust / Least privilege**:
-  - **Zero trust**: Assume no component is inherently trustworthy; verify and monitor.
+  - **Zero trust**: Assume no component is inherently trustworthy; verify explicitly and monitor.
   - **Least privilege**: Grant only the minimal permissions/data/tool access needed, reducing blast radius if something goes wrong.
 
