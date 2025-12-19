@@ -99,7 +99,7 @@ The below are my cleaned up 'course notes' on the topics we covered.
   - The math of Neural Networks (3Blue1Brown): https://www.3blue1brown.com/topics/neural-networks
   - Statistics (Khan Academy): https://www.youtube.com/playlist?list=PLU5aQXLWR3_xDN0M2ZeZ_zHIia0e42_3O  
   - Google AI Agents whitepaper: https://www.kaggle.com/whitepaper-agents
-  - AI Agent course: https://huggingface.co/learn/agents-course/en/unit0/introduction
+  - HF AI Agent course: https://huggingface.co/learn/agents-course/en/unit0/introduction
 ---
 
 ## Unit 1 - Generative AI Landscape
@@ -444,7 +444,7 @@ See: https://digital-strategy.ec.europa.eu/en/news/commission-publishes-guidelin
 Separately, the AI Act introduces a **rebuttable presumption** that a GPAI model is **systemic-risk** if it was trained with **cumulative compute > 10^25 FLOP**.  
 In addition, the Commission can **designate** a model as systemic-risk based on other criteria, and providers may be able to **rebut** the presumption depending on the circumstances.  
 
-See: https://artificialintelligenceact.eu/high-level-summary/
+See (not an official source!): https://artificialintelligenceact.eu/high-level-summary/
 
 #### Ballpark **total** training compute of already obsolete models (third-party estimates)
 - GPT-4 ≈ 2.1×10^25 FLOP  
