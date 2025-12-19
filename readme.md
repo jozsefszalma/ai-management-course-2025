@@ -382,6 +382,7 @@ Scenario: a no-code/low-code AI agent triages a Gmail inbox.
 
 ### Homework
 
+- OWASP Top 10 for Agentic Applications for 2026: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
 - Practical LLM security guidance (NVIDIA AI Red Team): https://developer.nvidia.com/blog/practical-llm-security-advice-from-the-nvidia-ai-red-team/
 - Semantic prompt injections in agentic AI: https://developer.nvidia.com/blog/securing-agentic-ai-how-semantic-prompt-injections-bypass-ai-guardrails/
 - LLM Guard project: https://github.com/protectai/llm-guard
