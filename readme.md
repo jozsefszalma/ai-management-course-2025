@@ -215,7 +215,7 @@ The below are my cleaned up 'course notes' on the topics we covered.
 
 - Models are trained to **continue text** and often rewarded for "helpfulness", not calibration.
 - Introducing brand-new knowledge via fine-tuning is risky; prefer **RAG** for new/volatile facts.
-- Long-context performance can degrade in the middle of the window ("needle in the haystack" and "context rot").
+- Long-context performance can degrade in the middle of the context window ("context rot"). Likely caused by lack of high quality long-context training samples and the methods used to generate synthetic training data e.g., concatenating lots of irrelevant wikipedia articles where only the system prompt (at the beginning) and the last article (at the end) are relevant for the next token generation.
 
 ### Homework
 
