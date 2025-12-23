@@ -385,6 +385,7 @@ Scenario: a no-code/low-code AI agent triages a Gmail inbox.
 - OWASP Top 10 for Agentic Applications for 2026: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
 - Practical LLM security guidance (NVIDIA AI Red Team): https://developer.nvidia.com/blog/practical-llm-security-advice-from-the-nvidia-ai-red-team/
 - Semantic prompt injections in agentic AI: https://developer.nvidia.com/blog/securing-agentic-ai-how-semantic-prompt-injections-bypass-ai-guardrails/
+- Prompt injection is not SQL injection (UK's NCSC): https://www.ncsc.gov.uk/blog-post/prompt-injection-is-not-sql-injection
 - LLM Guard project: https://github.com/protectai/llm-guard
 - What did the unknown author mean by "The 'S' in 'MCP' stands for Security"? See: https://modelcontextprotocol.io/docs/getting-started/intro
 
@@ -741,4 +742,5 @@ I intentionally did **not** go deep on:
 - **Zero trust / Least privilege**:
   - **Zero trust**: Assume no component is inherently trustworthy; verify explicitly and monitor.
   - **Least privilege**: Grant only the minimal permissions/data/tool access needed, reducing blast radius if something goes wrong.
+
 
