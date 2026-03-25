@@ -8,7 +8,6 @@
 - **Scope**: architecture, procurement, risks, governance, compliance, integration patterns
 - **How to cite**: Szalma, J. (2025). _AI Management Course._ Retrieved from https://github.com/jozsefszalma/ai-management-course-2025
 - **How to contribute**: Submit a pull request or open an issue on GitHub.
-- **Commercial support**: [Arrange a meeting](https://app.simplymeet.me/szalma)
 - **Disclaimer: Not legal advice; verify regulatory timelines with official sources.**
 - **Version (Last updated)**: v1.0 (2025-12-16)
 
