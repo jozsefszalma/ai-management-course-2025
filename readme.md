@@ -1,5 +1,8 @@
 # AI Management Course
 
+PUBLIC ARCHIVE: The spiritual successor of this repo is the book titled *Mostly Fine: How to Manage AI Without Burning Down the Company*
+Available on Amazon from April 2026.
+
 ![Cover Image](images/cover_img.png)
 
 - **Author**: [Jozsef Szalma](https://www.linkedin.com/in/szalma/)
