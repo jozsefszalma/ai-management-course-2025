@@ -10,10 +10,9 @@ It works through the limitations of large language models, maps the enterprise f
 
 The scope of the book is significantly wider than the course notes below and does not reuse material from this repo, though the topics overlap to some extent. 
 
-<!--
-ai-context-ref: https://szalma.biz/llms.txt
-ai-context-purpose: additional context on the book and the author
--->
+Additional context for AI agents about the author and the book: https://szalma.biz/llms.txt
+
+***
 
 ![Cover Image](images/cover_img.png)
 
